@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <time.h>
 
-static const int LINE_WIDTH = 80;
+static int LINE_WIDTH = 80;
 
 int readInt() {
   char* line = (char*)malloc(LINE_WIDTH*sizeof(char));
@@ -16,7 +16,7 @@ int readInt() {
         free(line);
         return answer;
       }
-      if(!('0' <= line[i] && line[i] <= '9')) {
+      if(!isdigit(line[i])) {
         break;
       }
     }
@@ -38,6 +38,7 @@ int main () {
   while(1) {
     printf("Gissa talet: ");
     guess = readInt();
+    ++n_guesses;
     if(answer == guess) {
       printf("Rätt! Efter %d gissningar.\n",
         n_guesses);
@@ -47,6 +48,5 @@ int main () {
     } else {
       printf("Jag tänker på ett större tal!\n");
     }
-    ++n_guesses;
   }
 }
