@@ -2,11 +2,11 @@
 #include <math.h>
 
 int isprime(int n){
-  int limit = fmax(n, 1+(int)sqrt((double)n));
+  int limit = n-1; 
   if(n%2==0) {
     return 0;
   }
-  for(int divisor = 3; divisor < limit; divisor+=2) {
+  for(int divisor = 3; divisor*divisor<=n; divisor+=2) {
     if(n%divisor == 0) {
       return 0;
     }
