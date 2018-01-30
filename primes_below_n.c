@@ -4,7 +4,7 @@
 int isprime(int n){
   int limit = n-1; 
   if(n%2==0) {
-    return 0;
+    return n=2;
   }
   for(int divisor = 3; divisor*divisor<=n; divisor+=2) {
     if(n%divisor == 0) {
